@@ -27,7 +27,7 @@ const LayoutBox = ({
             <div>Sorry, no items were available.</div>
           )}
         </div>
-        {searchFilter === null && items && (
+        {searchFilter === null && items.length > 0 && (
           <ButtonWithText
             variant="contained"
             disabled={isFetchingMore === true}

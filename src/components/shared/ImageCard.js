@@ -78,7 +78,7 @@ const ImageCard = (props) => {
                 : { display: "none" }
             }
           >
-            Loading
+            Loading . . .
           </Grid>
           {/* FIX UP STYLE ABOVE */}
           <Typography
