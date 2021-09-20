@@ -1,0 +1,65 @@
+$image-border-radius: 4px;
+
+//Cards
+.image_card {
+  margin-bottom: 10px;
+  margin-top: 10px;
+  .image_card_img {
+    width: 100%;
+    border-radius: $image-border-radius;
+    cursor: pointer;
+  }
+  h3.card_image_title {
+    margin-top: 0.35em;
+    font-weight: 600;
+  }
+  .image_card_img_container {
+    position: relative;
+  }
+  .dead_icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    svg {
+      font-size: 80px;
+      fill: rgba(255, 255, 255, 0.5);
+    }
+  }
+  button.image_card_like_btn {
+    // border-radius: 50%;
+    // height: 45px;
+    // min-width: 45px;
+    // padding: 6px;
+    margin-left: auto;
+    &.not_liked svg {
+      fill: #000;
+    }
+    &.liked.MuiButton-root {
+      color: red;
+    }
+  }
+
+  .collapsed_content {
+    padding-top: 0 !important;
+  }
+}
+
+//Overlaid Search Button
+.overlaid_search_btn {
+  position: fixed !important;
+  bottom: 2em;
+  height: 3em;
+  right: 32px;
+  width: 120px;
+  z-index: 5;
+  cursor: pointer;
+  span.search_text {
+    font-size: 20px;
+    font-weight: 600;
+    margin-left: 5px;
+  }
+  svg.search_text_icon {
+    font-size: 2rem;
+  }
+}
