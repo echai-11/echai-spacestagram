@@ -2,11 +2,13 @@ import React from "react";
 import Box from "@material-ui/core/Box";
 import ImageCard from "./ImageCard";
 import ButtonWithText from "./ButtonWithText";
+import ErrorMessage from "./ErrorMessage";
+
 const LayoutBox = ({
   searchFilter,
   items,
   isFetchingMore,
-  setIsFetchingMore,
+  fetchMoreError,
   getMorePhotos,
 }) => {
   return (
@@ -37,6 +39,7 @@ const LayoutBox = ({
             Load More
           </ButtonWithText>
         )}
+        {fetchMoreError === true && <ErrorMessage />}
       </Box>
     </React.Fragment>
   );

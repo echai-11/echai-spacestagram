@@ -4,9 +4,12 @@ import FilterChip from "./shared/FilterChip";
 import LayoutBox from "./shared/LayoutBox";
 import { formatDate } from "../utils/utils";
 import SearchModal from "./shared/SearchModal";
+import LoadingSpinner from "./shared/LoadingSpinner";
+import ErrorMessage from "./shared/ErrorMessage";
 
 const Layout = () => {
   const [error, setError] = useState(null);
+  const [fetchMoreError, setFetchMoreError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [isFetchingMore, setIsFetchingMore] = useState(false);
   const [items, setItems] = useState([]);
@@ -21,12 +24,17 @@ const Layout = () => {
       .then((res) => res.json())
       .then(
         (result) => {
+          if (result.hasOwnProperty("error")) {
+            setError(true);
+            setIsLoaded(true);
+            return;
+          }
           setIsLoaded(true);
           setItems(result);
         },
         (error) => {
           setIsLoaded(true);
-          setError(error);
+          setError(true);
         }
       );
   };
@@ -43,8 +51,8 @@ const Layout = () => {
           setItems(newResultArray);
         },
         (error) => {
-          setIsFetchingMore(false);
-          setError(error);
+          setIsLoaded(true);
+          setFetchMoreError(true);
         }
       );
   };
@@ -63,19 +71,22 @@ const Layout = () => {
   useEffect(() => {
     getPhotos();
     fixedScrollListener();
-    // clean up event listener
   }, []);
 
   const searchByDate = (searchDate) => {
     setIsLoaded(false);
     let formattedSelectedDate = formatDate(searchDate);
-    console.log("formatedSelecteDate", formattedSelectedDate);
     fetch(
       `https://api.nasa.gov/planetary/apod?api_key=${process.env.REACT_APP_NASA_KEY}&thumbs=true&date=${formattedSelectedDate}`
     )
       .then((res) => res.json())
       .then(
         (result) => {
+          if (result.hasOwnProperty("error")) {
+            setError(true);
+            setIsLoaded(true);
+            return;
+          }
           let arrayResult = [];
           arrayResult.push(result);
           setItems(arrayResult);
@@ -83,7 +94,7 @@ const Layout = () => {
         },
         (error) => {
           setIsLoaded(true);
-          setError(error);
+          setError(true);
         }
       );
   };
@@ -99,15 +110,13 @@ const Layout = () => {
   };
 
   if (error) {
-    //FIX UP STYLE HERE
-    return <span>Error: {error}</span>;
+    return <ErrorMessage />;
   } else if (!isLoaded) {
-    //FIX UP STYLE HERE
-    return <div>Loading...</div>;
+    return <LoadingSpinner />;
   } else {
     return (
       <React.Fragment>
-        {searchFilter !== null && (
+        {searchFilter !== null && error === null && (
           <FilterChip
             searchFilter={searchFilter}
             resetFilter={resetFilter}
@@ -119,7 +128,7 @@ const Layout = () => {
           items={items}
           searchFilter={searchFilter}
           isFetchingMore={isFetchingMore}
-          setIsFetchingMore={setIsFetchingMore}
+          fetchMoreError={fetchMoreError}
           getMorePhotos={getMorePhotos}
         />
         <OverlaidSearchButton
