@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/echai-spacestagram/static/css/main.bbfb8ba6.chunk.css",
-    "main.js": "/echai-spacestagram/static/js/main.5cfdc5d5.chunk.js",
-    "main.js.map": "/echai-spacestagram/static/js/main.5cfdc5d5.chunk.js.map",
+    "main.css": "/echai-spacestagram/static/css/main.f7dbeb6c.chunk.css",
+    "main.js": "/echai-spacestagram/static/js/main.f9a9c224.chunk.js",
+    "main.js.map": "/echai-spacestagram/static/js/main.f9a9c224.chunk.js.map",
     "runtime-main.js": "/echai-spacestagram/static/js/runtime-main.dbfc360d.js",
     "runtime-main.js.map": "/echai-spacestagram/static/js/runtime-main.dbfc360d.js.map",
     "static/js/2.32b904e8.chunk.js": "/echai-spacestagram/static/js/2.32b904e8.chunk.js",
@@ -10,13 +10,13 @@
     "static/js/3.c0361197.chunk.js": "/echai-spacestagram/static/js/3.c0361197.chunk.js",
     "static/js/3.c0361197.chunk.js.map": "/echai-spacestagram/static/js/3.c0361197.chunk.js.map",
     "index.html": "/echai-spacestagram/index.html",
-    "static/css/main.bbfb8ba6.chunk.css.map": "/echai-spacestagram/static/css/main.bbfb8ba6.chunk.css.map",
+    "static/css/main.f7dbeb6c.chunk.css.map": "/echai-spacestagram/static/css/main.f7dbeb6c.chunk.css.map",
     "static/js/2.32b904e8.chunk.js.LICENSE.txt": "/echai-spacestagram/static/js/2.32b904e8.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.dbfc360d.js",
     "static/js/2.32b904e8.chunk.js",
-    "static/css/main.bbfb8ba6.chunk.css",
-    "static/js/main.5cfdc5d5.chunk.js"
+    "static/css/main.f7dbeb6c.chunk.css",
+    "static/js/main.f9a9c224.chunk.js"
   ]
 }
