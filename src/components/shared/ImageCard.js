@@ -48,7 +48,7 @@ const ImageCard = (props) => {
             style={
               imageStatus === "loading"
                 ? { display: "none" }
-                : { display: "flex" }
+                : { display: "block" }
             }
           >
             <a
@@ -70,15 +70,17 @@ const ImageCard = (props) => {
               )}
             </a>
           </Grid>
+          {/* FIX UP STYLE HERE */}
           <Grid
             style={
               imageStatus === "loading"
-                ? { display: "flex" }
+                ? { display: "block" }
                 : { display: "none" }
             }
           >
             Loading
           </Grid>
+          {/* FIX UP STYLE ABOVE */}
           <Typography
             gutterBottom
             variant="body1"
@@ -87,7 +89,6 @@ const ImageCard = (props) => {
           >
             {title}
           </Typography>
-
           <Typography variant="caption" component="p">
             {copyright ? copyright + "," : ""} {date ? date : ""}
           </Typography>

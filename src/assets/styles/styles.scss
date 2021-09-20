@@ -1,5 +1,15 @@
 $image-border-radius: 4px;
 
+.filter_wrapper {
+  background: #ffffff;
+  width: 100%;
+  padding: 10px 16px;
+  z-index: 5;
+}
+.filter_wrapper.fixed {
+  position: fixed;
+  top: 0;
+}
 //Cards
 .image_card {
   margin-bottom: 10px;
@@ -61,5 +71,41 @@ $image-border-radius: 4px;
   }
   svg.search_text_icon {
     font-size: 2rem;
+  }
+}
+//Modal
+#searchModal {
+  .modal_body {
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    height: 100vh;
+
+    > div {
+      margin-top: 30% !important;
+      margin: 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    p {
+      text-align: center;
+    }
+    .close_btn {
+      margin-left: auto;
+    }
+  }
+}
+.date_picker_wrapper {
+  input {
+    text-align: center;
+  }
+}
+.search_btn {
+  width: 100%;
+  margin-top: 20px !important;
+  span {
+    font-size: 20px;
+    font-weight: 600;
   }
 }
