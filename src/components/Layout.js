@@ -46,7 +46,11 @@ const Layout = () => {
       .then((res) => res.json())
       .then(
         (result) => {
-          setIsFetchingMore(false);
+          if (result.hasOwnProperty("error")) {
+            setIsFetchingMore(false);
+            setFetchMoreError(true);
+            return;
+          }
           let newResultArray = [...items, ...result];
           setItems(newResultArray);
         },

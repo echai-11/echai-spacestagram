@@ -30,7 +30,7 @@ const LayoutBox = ({
         {searchFilter === null && items && (
           <ButtonWithText
             variant="contained"
-            disabled={isFetchingMore}
+            disabled={isFetchingMore === true}
             onClick={() => {
               getMorePhotos();
             }}

@@ -1,6 +1,9 @@
 $image-border-radius: 4px;
 
 //Layout
+.main {
+  padding-bottom: 100px;
+}
 .filter_wrapper {
   background: #ffffff;
   width: 100%;
@@ -112,7 +115,7 @@ $image-border-radius: 4px;
 //Loead More Button
 .load_more_btn {
   width: 100%;
-  margin: 0 0 100px 0 !important;
+  margin: 0 0 10px 0 !important;
   height: 3em;
 }
 
