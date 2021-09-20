@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import Modal from "@material-ui/core/Modal";
 import Grid from "@material-ui/core/Grid";
@@ -18,6 +18,7 @@ const SearchModal = (props) => {
     setItems,
     searchByDate,
   } = props;
+  const [newFilterDate, setNewFilterDate] = useState(null);
 
   return (
     <Modal
@@ -25,8 +26,8 @@ const SearchModal = (props) => {
       onClose={() => {
         handleModal(false);
       }}
-      aria-labelledby="simple-modal-title"
-      aria-describedby="simple-modal-description"
+      aria-labelledby="search-modal"
+      aria-describedby="search-by-date-modal"
       id="searchModal"
     >
       <Grid container className="modal_body">
@@ -51,11 +52,12 @@ const SearchModal = (props) => {
           <MUIDatePicker
             selectedDate={selectedDate}
             setSelectedDate={setSelectedDate}
-            setSearchFilter={setSearchFilter}
+            setNewFilterDate={setNewFilterDate}
           />
           <ButtonWithText
             onClick={() => {
               handleModal(false);
+              setSearchFilter(newFilterDate);
               setItems([]);
               searchByDate(selectedDate);
             }}

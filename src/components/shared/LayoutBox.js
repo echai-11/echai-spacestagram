@@ -13,27 +13,30 @@ const LayoutBox = ({
     <React.Fragment>
       <Box
         paddingX={2}
-        className={searchFilter !== null ? "filteredLayout" : ""}
+        className={searchFilter !== null ? "filteredLayout" : "layout_box"}
       >
-        {console.log(items)}
-        {items &&
-          items.length > 0 &&
-          items.map((d, i) => {
-            return <ImageCard key={`img_${i}`} item={d} />;
-          })}
-        {items && items.length === 0 && (
-          <div>Sorry, no items were available.</div>
+        <div>
+          {items &&
+            items.length > 0 &&
+            items.map((d, i) => {
+              return <ImageCard key={`img_${i}`} item={d} />;
+            })}
+          {items && items.length === 0 && (
+            <div>Sorry, no items were available.</div>
+          )}
+        </div>
+        {searchFilter === null && items && (
+          <ButtonWithText
+            variant="contained"
+            disabled={isFetchingMore}
+            onClick={() => {
+              getMorePhotos();
+            }}
+            className="load_more_btn"
+          >
+            Load More
+          </ButtonWithText>
         )}
-        <ButtonWithText
-          variant="contained"
-          color=""
-          disabled={isFetchingMore}
-          onClick={() => {
-            getMorePhotos();
-          }}
-        >
-          Load More
-        </ButtonWithText>
       </Box>
     </React.Fragment>
   );

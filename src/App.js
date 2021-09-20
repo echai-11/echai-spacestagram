@@ -8,7 +8,7 @@ import "./assets/styles/styles.scss";
 const App = () => {
   return (
     <div className="App" id="appRoot">
-      <Container disableGutters>
+      <Container disableGutters mb={2} maxWidth="xl">
         <CssBaseline />
         <Header />
         <Layout />

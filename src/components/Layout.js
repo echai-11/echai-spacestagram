@@ -12,7 +12,7 @@ const Layout = () => {
   const [items, setItems] = useState([]);
   const [modalOpen, setModalOpen] = useState(false);
   const [searchFilter, setSearchFilter] = useState(null);
-  const [selectedDate, setSelectedDate] = useState(new Date().toJSON());
+  const [selectedDate, setSelectedDate] = useState(null);
 
   const getPhotos = () => {
     fetch(

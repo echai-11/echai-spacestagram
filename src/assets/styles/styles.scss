@@ -1,5 +1,6 @@
 $image-border-radius: 4px;
 
+//Layout
 .filter_wrapper {
   background: #ffffff;
   width: 100%;
@@ -37,10 +38,6 @@ $image-border-radius: 4px;
     }
   }
   button.image_card_like_btn {
-    // border-radius: 50%;
-    // height: 45px;
-    // min-width: 45px;
-    // padding: 6px;
     margin-left: auto;
     &.not_liked svg {
       fill: #000;
@@ -96,16 +93,55 @@ $image-border-radius: 4px;
     }
   }
 }
+//Date Picker
 .date_picker_wrapper {
   input {
     text-align: center;
   }
 }
+//Modal Search Button
 .search_btn {
   width: 100%;
   margin-top: 20px !important;
+  height: 3em;
   span {
     font-size: 20px;
     font-weight: 600;
+  }
+}
+//Loead More Button
+.load_more_btn {
+  width: 100%;
+  margin: 0 0 100px 0 !important;
+  height: 3em;
+}
+
+@media (min-width: 959px) {
+  .image_card {
+    width: 30em;
+    img {
+      max-height: 200px;
+    }
+  }
+  .layout_box {
+    text-align: center;
+  }
+  .layout_box > div {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .layout_box > button {
+    width: 350px;
+  }
+  #searchModal .modal_body {
+    width: 500px;
+    height: 400px;
+    border-radius: $image-border-radius;
+    margin: 150px auto !important;
+    & > div {
+      margin-top: 10% !important;
+    }
   }
 }

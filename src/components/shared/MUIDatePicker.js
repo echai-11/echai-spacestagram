@@ -3,10 +3,9 @@ import Grid from "@material-ui/core/Grid";
 import DateFnsUtils from "@date-io/date-fns";
 import { MuiPickersUtilsProvider, DatePicker } from "@material-ui/pickers";
 
-const MUIDatePicker = ({ selectedDate, setSelectedDate, setSearchFilter }) => {
+const MUIDatePicker = ({ selectedDate, setSelectedDate, setNewFilterDate }) => {
   const handleDateChange = (date) => {
     setSelectedDate(date);
-    setSearchFilter(date);
   };
 
   return (
@@ -19,6 +18,10 @@ const MUIDatePicker = ({ selectedDate, setSelectedDate, setSearchFilter }) => {
         <DatePicker
           value={selectedDate}
           onChange={handleDateChange}
+          onAccept={(date) => {
+            setNewFilterDate(date);
+          }}
+          placeholder="Date"
           format="MM/dd/yyyy"
         />
       </Grid>
